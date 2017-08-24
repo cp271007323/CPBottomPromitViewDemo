@@ -1,0 +1,58 @@
+//
+//  CPBottomPromitLabView.m
+//  BottomPromitView
+//
+//  Created by lk06 on 17/2/15.
+//  Copyright © 2017年 lk06. All rights reserved.
+//
+
+#import "CPBottomPromitLabView.h"
+
+@interface CPBottomPromitLabView ()
+
+@end
+
+@implementation CPBottomPromitLabView
+
+
+-(void)cpSetTitleLabText:(NSString *)title titleColor:(UIColor *)titleColor{
+    if (title != nil && [title isEqual:[NSNull null]] == NO) {
+        [self cpSetText:title ToLab:self.titleLab color:titleColor];
+    }
+}
+
+-(void)cpSetDetailLabText:(NSString *)detail detailColor:(UIColor *)detailColor{
+    if (detail != nil && [detail isEqual:[NSNull null]] == NO) {
+        [self cpSetText:detail ToLab:self.detailLab color:detailColor];
+    }
+}
+
+-(void)cpSetText:(NSString *)text ToLab:(UILabel *)toLab color:(UIColor *)color{
+    [self addSubview:toLab];
+    [toLab setText:text];
+    [toLab setTextColor:color];
+    [toLab sizeToFit];
+}
+
+
+-(UILabel *)titleLab{
+    if (_titleLab == nil) {
+        _titleLab = [[UILabel alloc] initWithFrame:CGRectZero];
+        _titleLab.textAlignment = NSTextAlignmentCenter;
+        _titleLab.textColor = [UIColor blackColor];
+        _titleLab.font = [UIFont systemFontOfSize:18];
+    }
+    return _titleLab;
+}
+
+-(UILabel *)detailLab{
+    if (_detailLab == nil) {
+        _detailLab = [[UILabel alloc] initWithFrame:CGRectZero];
+        _detailLab.textAlignment = NSTextAlignmentCenter;
+        _detailLab.textColor = [UIColor darkGrayColor];
+        _detailLab.font = [UIFont systemFontOfSize:12];
+    }
+    return _detailLab;
+}
+
+@end

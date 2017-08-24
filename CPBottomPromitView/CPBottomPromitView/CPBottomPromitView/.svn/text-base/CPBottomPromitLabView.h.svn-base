@@ -1,0 +1,27 @@
+//
+//  CPBottomPromitLabView.h
+//  BottomPromitView
+//
+//  Created by lk06 on 17/2/15.
+//  Copyright © 2017年 lk06. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+#import "CPBottomPromitManager.h"
+
+
+@interface CPBottomPromitLabView : UIView
+@property (nonatomic , strong) UILabel *titleLab;
+@property (nonatomic , strong) UILabel *detailLab;
+
+/**
+ 写入标题和颜色
+ */
+-(void)cpSetTitleLabText:(NSString *)title titleColor:(UIColor *)titleColor;
+
+/**
+ 写入附加信息和附加信息颜色
+ */
+-(void)cpSetDetailLabText:(NSString *)detail detailColor:(UIColor *)detailColor;
+
+@end

@@ -1,0 +1,63 @@
+//
+//  CPBottomPromitView.h
+//  BottomPromitView
+//
+//  Created by lk06 on 17/2/15.
+//  Copyright © 2017年 lk06. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@class CPBottomPromitView;
+
+@protocol CPBottomPromitViewDelegate <NSObject>
+
+/**
+ 点击事件
+
+ @param bottomPromitView 回传视图
+ @param indexPath        点击位置
+ */
+-(void)cpBottomPromitView:(CPBottomPromitView *)bottomPromitView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
+
+
+@optional
+/**
+ 取消选择
+
+ @param bottomPromitView 回传视图
+ */
+-(void)cpCancleChooseBottomPromitView:(CPBottomPromitView *)bottomPromitView;
+@end
+
+@interface CPBottomPromitView : UIView
+@property (nonatomic , assign) id<CPBottomPromitViewDelegate> cpDelegate;
+
++(__kindof CPBottomPromitView *)bottomPromitView;
+
+/**
+ 写入数据
+
+ @param titles        标题数组
+ @param details       附加信息数组
+ @param colors        标题颜色数组
+ @param detailsColors 附加信息颜色数组
+ */
+-(void)cpSetTitles:(NSArray<NSString *> *)titles
+           details:(NSArray *)details
+       titleColors:(NSArray<UIColor *> *)colors
+     detailsColors:(NSArray<UIColor *> *)detailsColors;
+
+/**
+ 写入头部视图
+
+ @param title      标题
+ @param titleColor 标题颜色
+ */
+-(void)cpSetShowHeadViewHeadTitle:(NSString *)title titleColor:(UIColor *)titleColor;
+
+/**
+ 显示
+ */
+-(void)show;
+@end
